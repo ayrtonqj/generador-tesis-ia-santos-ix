@@ -1,0 +1,82 @@
+services:
+  # 1. Servicio de Base de Datos Redis (para colas de tareas BullMQ)
+  - type: redis
+    name: kimy-redis
+    plan: free
+    ipAllowList: [] # Solo accesible internamente por otros servicios de Render
+
+  # 2. Servicio Web de la API (NestJS backend Dockerizado)
+  - type: web
+    name: kimy-api
+    runtime: docker
+    plan: free # Puedes cambiar a starter si requieres más recursos
+    dockerfilePath: Dockerfile
+    dockerContext: .
+    envVars:
+      # Conexión automática con la base de datos PostgreSQL
+      - key: DATABASE_URL
+        fromDatabase:
+          name: kimy-postgres
+          property: connectionString
+
+      # Conexión automática con Redis
+      - key: REDIS_HOST
+        fromService:
+          type: redis
+          name: kimy-redis
+          property: host
+      - key: REDIS_PORT
+        fromService:
+          type: redis
+          name: kimy-redis
+          property: port
+
+      # Configuración de Entorno
+      - key: NODE_ENV
+        value: production
+
+      # Secretos generados automáticamente por Render
+      - key: JWT_SECRET
+        generateValue: true
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+
+      # Llave de encriptación interna (Reemplazar en producción con 64 caracteres hex)
+      - key: ENCRYPTION_KEY
+        value: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+
+      # URLs de la App (Configurar después de desplegar)
+      - key: APP_URL
+        sync: false # Se configurará en Render UI con la URL de Vercel
+      - key: FRONTEND_URL
+        sync: false # Se configurará en Render UI con la URL de Vercel
+
+      # Configuración de Inteligencia Artificial (A rellenar por el usuario)
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: AI_MODEL
+        value: gpt-4o
+      - key: AI_EMBEDDING_MODEL
+        value: text-embedding-3-large
+
+      # Configuración de almacenamiento (MinIO / S3)
+      - key: MINIO_ENDPOINT
+        sync: false # Se puede configurar con AWS S3 o Cloudflare R2
+      - key: MINIO_ACCESS_KEY
+        sync: false
+      - key: MINIO_SECRET_KEY
+        sync: false
+      - key: MINIO_BUCKET
+        value: thesis-documents
+      - key: MINIO_USE_SSL
+        value: "true"
+
+databases:
+  # 3. Base de datos PostgreSQL gestionada (soporta pgvector nativo)
+  - name: kimy-postgres
+    databaseName: kimy_thesis
+    user: kimy
+    plan: free # Cambiar a un plan de pago si requieres almacenamiento persistente después del periodo gratuito
+    postgresMajorVersion: 16

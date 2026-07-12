@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "KIMY",
+    "slug": "kimy-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0F0F1A"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "pe.edu.unt.kimy"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0F0F1A"
+      },
+      "package": "pe.edu.unt.kimy"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#6C63FF",
+          "sounds": []
+        }
+      ],
+      "expo-secure-store",
+      "expo-font"
+    ],
+    "scheme": "kimy",
+    "extra": {
+      "apiUrl": "http://192.168.1.41:3001",
+      "eas": {
+        "projectId": ""
+      }
+    }
+  }
+}

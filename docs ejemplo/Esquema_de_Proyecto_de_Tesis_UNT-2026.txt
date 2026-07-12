@@ -1,0 +1,1018 @@
+UNIVERSIDAD NACIONAL DE TRUJILLO
+
+FACULTAD DE INGENIERÍA
+
+Programa de Estudios de Ingeniería de Sistemas
+
+
+
+                 PROYECTO DE TESIS
+
+
+
+
+
+(según el Artículo 2° de la Ley de Repositorio N° 30025, la Resolución de Consejo Directivo N° 033-2016-SUNEDU/CD y la Resolución Rectoral N° 384-2018/UNT.)
+
+
+
+
+
+CUBIERTA CARÁTULA
+
+JURADO DICTAMINADOR
+
+ÍNDICE GENERAL 
+
+INDICES COMPLEMENTARIOS
+
+CAPITULO I: INTRODUCCIÓN 
+
+CAPITULO II: MÉTODOLOGÍA
+
+Tipo de investigación
+
+De acuerdo a la orientación o finalidad
+
+De acuerdo a la técnica de contrastación
+
+Nivel de investigación
+
+Diseño de Investigación
+
+Población, muestra y muestreo
+
+Población
+
+Muestra
+
+Muestreo
+
+Variables
+
+Tipo
+
+Operacionalización
+
+Técnicas e instrumentos, validación y confiabilidad
+
+Técnicas e instrumentos
+
+Validación y confiabilidad
+
+Método de análisis de datos
+
+Procedimiento
+
+Consideraciones éticas
+
+
+
+CAPITULO III: ASPECTOS ADMINISTRATIVOS
+
+Recursos y presupuesto
+
+Recursos
+
+Personal
+
+Bienes
+
+Viajes
+
+Servicios
+
+Tecnológicos
+
+Presupuesto
+
+Financiamiento
+
+De fuentes externas
+
+Autofinanciación
+
+Cronograma de ejecución
+
+Período
+
+Cronograma
+
+
+
+REFERENCIAS BIBLIOGRÁFICAS 
+
+							
+
+Trujillo, …. de …………….. de 20……	
+
+
+
+Firma del autor 1		VºBº  Asesor
+
+
+
+Firma del autor 2		Firma del asesor
+
+
+
+ANEXOS
+
+FORMATOS
+
+
+
+GUÍA PARA LA ELABORACIÓN DEL PROYECTO DE TESIS
+
+
+
+CONSIDERACIONES DE FORMA:
+
+El informe debe estar en medio digital pdf.
+
+En cuanto a los márgenes debe ser 2.5 cms (superior, inferior y derecho) y 3 cms (Izquierdo).
+
+En cuanto al interlineado y alineación debe ser doble espacio (interlineado 2) y justificado completo (alineación).
+
+En cuanto al tipo y tamaño de fuente debe ser arial narrow (tipo de fuente) y 12 puntos (tamaño de fuente).
+
+No hay encabezado ni pie de página en el informe de proyecto de tesis.
+
+En cuanto a la enumeración debe ser en arábigo (contenido del informe), todo esto en la esquina inferior derecha; la carátula no va enumerada.
+
+En cuanto a la norma de referencias y citas bibliográficas de ser APA.
+
+En cuanto a la ubicación del formato (declaración jurada) va al final del informe debidamente firmado.
+
+En cuanto al medio digital: debe ser presentado en un cd/dvd rotulado interna y externamente, en formato pdf, todo en un único archivo.
+
+En cuanto al medio físico (espiralado): debe coincidir absoluta y completamente con el medio digital.
+
+
+
+
+
+CARÁTULA
+
+(Comprende el logotipo de la Universidad Nacional de Trujillo, la facultad y escuela profesional, título de la tesis, apellidos y nombres del autor(es), grado académico [doctor, maestro o su equivalente extranjero] y nombre completo del asesor, así como la línea de investigación del programa de estudios de acuerdo al currículo reformado 2018, la ciudad de la sede y el año vigente; en cuanto al título de la tesis debe ser claro, conciso, no exceder de 20 palabras y con letra minúscula a excepción de nombres propios o caracteres especiales, debe informar con claridad el contenido del proyecto. Las palabras seleccionadas para el título tienen que contener los términos más importantes del estudio y atraer la atención del lector; en cuanto a los apellidos y nombres de los autor(es), debe ser tal como se muestra en su DNI; en cuanto a los apellidos y nombres del asesor, debe ser tal como se muestra en su DNI; en cuanto a la línea de investigación puede ser [gestión de gobierno y servicios de tic, gestión de proyectos de TIC, gestión de desarrollo de software, gestión de infraestructura y comunicaciones, gestión de la seguridad de la información]; en cuanto a la ciudad puede ser [Trujillo, Guadalupe u otra ciudad de sede descentralizada].
+
+
+
+JURADO DICTAMINADOR
+
+(Está conformado por tres profesores del departamento de Ingeniería de Sistemas como sigue: un docente general/especialista, un docente especialista y un docente metodólogo; en el rol de presidente se tiene al docente general/especialista, en el rol de secretario se tiene al docente metodólogo y en el rol de vocal se tiene al docente especialista, quién es a su vez el asesor de la tesis).
+
+(Se debe colocar centrado el grado académico seguido del nombre completo de cada jurado, uno debajo de otro, así como su rol correspondiente [presidente, secretario o vocal] debidamente firmado por cada miembro).
+
+
+
+ÍNDICE GENERAL
+
+(Debe ser autogenerado, incluye índice de anexos).
+
+
+
+ÍNDICES COMPLEMENTARIOS
+
+(Índice de figuras [incluye figuras, imágenes, ilustraciones, gráficos o fotografías], índice de tablas [incluye tablas, cuadros, matrices o esquemas]).
+
+
+
+CAPÍTULO I: INTRODUCCIÓN
+
+(Se redacta en prosa y sin subtítulos, esto incluye la realidad problemática [en el contexto social de lo general a específico y el problema de investigación para el área profesional], los antecedentes del problema [artículos científicos de revistas indexadas y tesis en el ámbito internacional, nacional y regional o local], el marco teórico [teorías y enfoques conceptuales relacionados al tema de investigación, así como la descripción detallada de 3 metodologías estándares alternativas para el desarrollo de la solución tecnológica propuesta], la justificación de la investigación [conveniencia, relevancia social, implicaciones prácticas, valor teórico y utilidad metodológica, u otras], el enunciado o formulación del problema [identificado se formula de manera interrogativa y se describe con precisión y claridad utilizando los mismos componentes referidos en el título], la hipótesis y subhipótesis [Es una solución apriori (antes de la experiencia) al problema planteado y se enuncia con precisión y claridad utilizando los mismos componentes referidos en el título y el problema. Para construir la hipótesis se recurre a los resultados científicos previos (antecedentes), la imaginación, la intuición, la experiencia y la lógica. En algunos estudios descriptivos, la hipótesis puede ser implícita. En este caso, en esta sección aparecerá: “Hipótesis: Implícita”], los objetivos [general y específicos] y las limitaciones del estudio [en el aspecto espacio y tiempo]).
+
+
+
+CAPÍTULO II: MÉTODO
+
+Tipo de investigación
+
+De acuerdo a la orientación o finalidad
+
+(Puede ser básica o aplicada)
+
+De acuerdo a la técnica de contrastación
+
+(Puede descriptiva, correlacional, explicativa)
+
+Clasificación de diseños de estudio: 
+
+(Enfoque de investigación: [puede ser exploratorio, descriptivo, correlacional o analítico]. Proyección temporal: [retrospectiva, prospectiva o ambispectiva]. Frecuencia de medición: al número de veces que se mide la variable [transversal o longitudinal].  Nivel de control de la variable [experimental o no experimental]).
+
+Diseño de investigación
+
+(Señala y esquematiza el diseño propio de la investigación, se debe incluir un gráfico conveniente y luego explicado)
+
+Población, muestra y muestreo
+
+Población
+
+(En cuanto a la población, se describe a la población de estudio y su ubicación espacio temporal).
+
+Muestra
+
+(En cuanto a la muestra, se incorpora la descripción de las unidades de análisis, se indica el tamaño o selección de la muestra).
+
+Muestreo
+
+(En cuanto al muestreo, se considera los tipos de selección [probabilísticos, no probabilísticos]).
+
+Variables
+
+Tipo
+
+(Es independiente o causal, dependiente o efecto, interviniente, medio; se describe cada una).
+
+Operacionalización
+
+(Se debe colocar la matriz de operacionalización de variables)
+
+Técnicas e instrumentos, validación y confiabilidad
+
+Técnicas e instrumentos
+
+(Se describe las principales técnicas aplicadas y sus correspondientes instrumentos, así mismo la fuente(s) e informante(s) que se utilizarán para la recolección y procesamiento de la información de acuerdo, a los objetivos planteados en el proyecto de investigación).
+
+Validación y confiabilidad
+
+(Se describe las evidencias de validez y fiabilidad de los instrumentos de investigación. Si se usa como instrumentos encuestas deben ser validadas mínimo por tres expertos o jueces especialistas en el tema de investigación, se debe validar la concordancia de jueces con una prueba estadística apropiada como V de Aiken, Kappa de Fleiss, coeficiente de Kendall, prueba binomial, etc.). Luego se realiza una prueba piloto con un mínimo absoluto de no menos de 30 participantes La prueba de consistencia interna es un método estadístico que evalúa el grado en que los ítems (preguntas) de un instrumento de medición (escala, cuestionario) se correlacionan entre sí para medir el mismo constructo o variable. Es una forma específica de fiabilidad que garantiza que las distintas partes del instrumento producen resultados coherentes y consistentes. Los coeficientes principales son alfa de Cronbach (α), omega de McDonald (ω), Kuder-Richardson (KR-20) para datos dicotómicos, división por mitades, etc.)
+
+Método de análisis de datos
+
+(El método de análisis de datos en una investigación es el proceso sistemático de inspeccionar, limpiar, transformar y modelar los datos recolectados para descubrir información útil, extraer patrones o tendencias, validar hipótesis y llegar a conclusiones que respalden la toma de decisiones. Se selecciona según el objetivo del estudio, el tipo de datos (cuantitativos vs. cualitativos) y el enfoque de investigación (exploratorio, descriptivo, correlacional o analítico).
+
+Análisis cuantitativo vs. cualitativo
+
+Cuantitativo (datos numéricos):
+
+Pasos clave: limpieza de datos → exploración (EDA) → elección del método → aplicación → validación y reproducibilidad.
+
+Técnicas comunes:
+
+Descriptiva: medidas de tendencia central, dispersión, tablas y gráficos
+
+Inferencial: pruebas de hipótesis, intervalos de confianza, regresiones para inferir sobre la población desde una muestra
+
+Modelos avanzados: regresión múltiple, ANOVA, modelos de ecuaciones estructurales, aprendizaje automático si es necesario.
+
+Herramientas: Python (pandas, scipy, scikit-learn), R, SPSS, Stata
+
+Cualitativo (datos textuales, discursos, imágenes):
+
+Pasos clave: preparación y organización → codificación → identificación de patrones → creación de categorías/temas → interpretación contextual → validación y fiabilidad
+
+Técnicas comunes: análisis temático, análisis de contenido, teoría fundamentada, análisis narrativo
+
+Herramientas: ATLAS.ti, NVivo, Dedoose)
+
+Procedimiento
+
+(Se describe la elección de la metodología propuesta para el desarrollo de la solución planteada al problema de investigación, la cual puede estar organizada en fases, etapas, pasos, niveles etc. según corresponda; elaborar un esquema gráfico de la misma).
+
+Consideraciones éticas
+
+(Se explican los criterios que se utilizan para garantizar la calidad y ética de la investigación).
+
+
+
+CAPITULO III: ASPECTOS ADMINISTRATIVOS
+
+Recursos y Presupuesto
+
+Recursos
+
+(Debe estar debidamente codificado según clasificación y catálogo de cuentas contable actualizada).
+
+Personal
+
+(Tabla con descripción del autor(es) y el asesor).
+
+Bienes
+
+(Tabla con descripción de materiales y útiles de escritorio).
+
+Viajes
+
+(Tabla con descripción de viajes domésticos a nivel local y/o nacional).
+
+Servicios
+
+(Tabla con descripción de servicios básicos [energía] y de comunicación [telefonía e internet]).
+
+(Tabla con descripción de servicios de impresión, fotocopias, empastado y encuadernado [anillado]).
+
+(Tabla con descripción de servicios de consultoría especializada).
+
+Tecnológicos
+
+(Tabla con descripción de hardware [equipos informáticos y de comunicaciones] y software).
+
+Presupuesto
+
+(Se debe elaborar una tabla por cada recurso presupuestado: personal, bienes, viajes, servicios, tecnológico y al final debe ir una tabla consolidada de todos los recursos presupuestados; usar el clasificador de gastos aprobado por el Congreso de la República para cada año fiscal).
+
+Financiamiento
+
+De fuentes externas
+
+Autofinanciación
+
+(Si es posible se especifica la asignación porcentual de cada una de las fuentes de financiamiento).
+
+Cronograma de ejecución
+
+Período
+
+(Se debe incluir fecha de inicio, fecha de término y la dedicación en horas semanales).
+
+Cronograma
+
+(Se debe incluir un diagrama de Gantt que muestre en función del tiempo cada una de las actividades programadas para el trabajo de investigación).
+
+ACTIVIDAD (Según corresponda)
+
+Mes 1
+
+Mes 2
+
+Mes 3
+
+Mes4
+
+Mes5
+
+Mes6
+
+…..
+
+…..
+
+Validación de instrumentos de recolección de datos
+
+
+
+
+
+
+
+
+
+
+
+
+
+……
+
+Recolección de datos y/o información
+
+
+
+
+
+
+
+
+
+
+
+
+
+……
+
+Análisis y tratamiento de datos y/o de la información
+
+
+
+
+
+
+
+
+
+
+
+
+
+……
+
+Interpretación y fundamentación de los resultados
+
+
+
+
+
+
+
+
+
+
+
+
+
+……
+
+Redacción del informe
+
+
+
+
+
+
+
+
+
+
+
+
+
+……
+
+
+
+
+
+REFERENCIAS BIBLIOGRÁFICAS
+
+(Lista de fuentes citadas en el trabajo de investigación de acuerdo, a la versión más reciente de las normas APA, ordenadas alfabéticamente, como mínimo 30 referencias; 70% del total de los últimos 5 años, el 25% del total de los últimos 10 años y 5% de otros años; 80% del total corresponde a artículos de revistas científicas indexadas y el 20% del total corresponde a libros [físicos y/o digitales]; así mismo, el 60% del total debe ser referencias en el idioma inglés). Sólo deben aparecer aquellas referencias que hayan sido citadas en el texto.
+
+ANEXOS
+
+Anexo 1: Matriz de operacionalización de variables
+
+Anexo 2: Matriz de consistencia
+
+Anexo 3: Diagrama de Ichikawa o espina de pescado
+
+Anexo 4: Árbol de problemas Anexo 5: Árbol de objetivos
+
+Anexo 6: Instrumentos de recolección de datos (ficha de observación, cuestionario, guía de entrevista, análisis de contenido, lluvia de ideas, otros). 
+
+Anexo 7: Constancia de aplicación de instrumentos (de parte de la institución investigada)
+
+FORMATO
+
+Declaración Jurada (según R.R. 384-2018-UNT)
+
+OTRAS CONSIDERACIONES GENERALES
+
+Utilice la COMA para separar decimales.
+
+Tanto, mapas, fotografías, diagramas y esquemas se deben denominar figuras. No utilizar la denominación “cuadros”, sino “tablas”. Las figuras que se incluyan en el informe deben tener la calidad y nitidez adecuada, tratando de no incluir imágenes borrosas, confusas o con partes ilegibles.
+
+Para tablas y figuras propias, es decir, elaboradas por el propio autor, no se debe colocar “Fuente: Elaboración Propia”.
+
+Idealmente, se debe utilizar un gestor bibliográfico (Mendeley, Zotero, EndNote, RefWorks) para gestionar sus citas y bibliografía, en el estilo APA.
+
+
+
+
+
+UNIVERSIDAD NACIONAL DE TRUJILLO (Tamaño 18)
+
+UNT
+
+FACULTAD DE INGENIERÍA (Tamaño 14)
+
+ESCUELA PROFESIONAL DE INGENIERIA DE SISTEMAS (Tamaño 12)
+
+
+
+
+
+(Título del proyecto de tesis) (Tamaño 12)
+
+
+
+PROYECTO DE TESIS (Tamaño 12)
+
+
+
+
+
+
+
+
+
+
+
+	AUTOR(ES):
+
+
+
+
+
+(Apellidos y Nombres del autor 1) (Tamaño 12)
+
+(Apellidos y Nombres del autor 2) (Tamaño 12)
+
+
+
+
+
+
+
+
+
+
+
+ASESOR:
+
+(Grado académico) (Apellidos y nombres del asesor) (Tamaño 12)
+
+
+
+
+
+
+
+LÍNEA DE INVESTIGACIÓN:
+
+
+
+(Línea de investigación del Programa de Estudios) (Tamaño 12)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(CIUDAD LA SEDE CENTRAL O DESCONCENTRADA) - (AÑO) (Tamaño 12)
+
+
+
+JURADO DICTAMINADOR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------
+
+(Grado Académico) (Nombres y Apellidos)
+
+Presidente
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------
+
+(Grado Académico) (Nombres y Apellidos)
+
+Secretario
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------
+
+(Grado Académico) (Nombres y Apellidos)
+
+Vocal
+
+
+
+ANEXO 1: MATRIZ DE OPERACIONALIZACIÓN DE VARIABLES
+
+
+
+Variable
+
+Definición conceptual
+
+Definición operacional
+
+Dimensión
+
+Indicador
+
+Escala de medición
+
+Independiente:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+…
+
+Dependiente:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+…
+
+
+
+
+
+ANEXO 2: MATRIZ DE CONSISTENCIA
+
+Título: 
+
+Autor(es):
+
+Problema
+
+Objetivos
+
+Hipótesis
+
+Variable
+
+Metodología
+
+Enunciado o formulación en forma de pregunta:
+
+
+
+
+
+General:
+
+General:
+
+Independiente:
+
+Método investigación:
+
+
+
+Tipo: 
+
+ 
+
+Diseño de la investigación:
+
+
+
+Población:
+
+
+
+Muestra:
+
+
+
+Muestreo:
+
+
+
+Técnicas de recolección de datos: 
+
+
+
+Técnica de análisis de resultados:
+
+- Estadística descriptiva - Estadística inferencial
+
+Específicos:
+
+1.
+
+2.
+
+3.
+
+…
+
+
+
+
+
+
+
+
+
+Específicos:
+
+1.
+
+2.
+
+3.
+
+…
+
+Específicas:
+
+1.
+
+2.
+
+3.
+
+…
+
+Dependiente:
+
+
+
+ANEXO 6: CONSTANCIA DE APLICACIÓN DE INSTRUMENTOS
+
+
+
+(NOMBRE DE LA INSTITUCIÓN INVESTIGADA)
+
+
+
+El que suscribe (Nombre Completo del Representante Legal de la Institución) (Puesto o Cargo) de la Institución (Razón Social de la Institución Investigada), expide la presente constancia:
+
+
+
+CONSTANCIA: (Tamaño 18)
+
+Que, el(los) tesista(s) (Nombre Completo del Autor 1) y (Nombre Completo del Autor 2), alumno(s)/egresado(s) de la Carrera Profesional de Ingeniería de Sistemas de la Universidad Nacional de Trujillo, con sede en Trujillo/Guadalupe/Huamachuco/Otro aplicaron (Nombre(s) del(os) Instrumento(s) de Recolección de Datos) del Proyecto de Investigación Científica (Proyecto de Tesis Pregrado) titulado:
+
+________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+dicha aplicación se realizó al grupo (muestra poblacional) conformado por:
+
+______________________________________________________________________________________________________________________________________________________________________________________
+
+durante los días _____________________________________________________________________ 	
+
+Se expide la presente a solicitud del(os) interesado(s), para los fines que se estime conveniente.
+
+                                                                                                    (Ciudad), … de ….…..….…	de 20….
+
+
+
+
+
+
+
+
+
+
+
+_______________________________________________________________________________________			__________________________________________________________________
+
+Representante Legal (Institución investigada)	DNI
+
+
+
+
+
+
+
+____________________________________			___________________________
+
+Autor 1	DNI
+
+
+
+
+
+
+
+__________________________________			__________________________
+
+Autor 2	DNI
+
+
+
+FORMATO: DECLARACIÓN JURADA
+
+(según R.R. 384-2018-UNT)
+
+
+
+Los AUTORES suscritos en el presente documento DECLARAMOS BAJO JURAMENTO que somos los responsables legales de la calidad y originalidad del contenido del Proyecto de Investigación Científica realizado.
+
+
+
+TÍTULO:
+
+____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+PROYECTO DE INVESTIGACIÓN CIENTÍFICA:
+
+
+
+PROYECTO DE TESIS PREGRADO
+
+________________________________________________________________________________________________________
+
+
+
+Equipo investigador integrado por:
+
+
+
+N°
+
+Apellidos y nombres
+
+Facultad
+
+Departamento Académico
+
+Categoría del docente asesor
+
+Código del docente asesor
+
+N° matrícula del estudiante
+
+[Autor, Coautor, Asesor]
+
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+2
+
+
+
+
+
+
+
+
+
+
+
+
+
+3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Trujillo, …. de …..…….. de 20….
+
+
+
+
+
+
+
+__________________________________				_________________________________
+
+                     Asesor de Tesis	DNI			
+
+	
+
+
+
+__________________________________				_________________________________
+
+                             Autor 1	DNI				
+
+
+
+
+
+__________________________________				_________________________________
+
+                             Autor 2	DNI	
+

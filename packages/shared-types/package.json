@@ -1,0 +1,11 @@
+{
+  "name": "@kimy/shared-types",
+  "version": "1.0.0",
+  "private": true,
+  "exports": {
+    ".": "./index.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}

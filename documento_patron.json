@@ -1,0 +1,288 @@
+{
+    "sections": [
+        {
+            "name": "CARÁTULA",
+            "level": 1,
+            "order": 1,
+            "required": true,
+            "description": "Portada del proyecto con logos institucionales, título, autores (según DNI), grado y nombre del asesor, línea de investigación y año.",
+            "subsections": [],
+            "estimatedWords": 150,
+            "validationRules": [
+                "Título no mayor a 20 palabras en minúsculas (salvo nombres propios)",
+                "Nombres de autores idénticos al DNI",
+                "Líneas de investigación válidas: gestión de gobierno y servicios de tic, gestión de proyectos de TIC, gestión de desarrollo de software, gestión de infraestructura y comunicaciones, gestión de la seguridad de la información",
+                "Sedes válidas: Trujillo, Guadalupe u otra sede descentralizada"
+            ]
+        },
+        {
+            "name": "JURADO DICTAMINADOR",
+            "level": 1,
+            "order": 2,
+            "required": true,
+            "description": "Designación de miembros del jurado y sus roles.",
+            "subsections": [],
+            "estimatedWords": 100,
+            "validationRules": [
+                "Conformado por 3 docentes de Ing. de Sistemas",
+                "Presidente: docente general/especialista",
+                "Secretario: docente metodólogo",
+                "Vocal: docente especialista (asesor)",
+                "Debe incluir firmas y grados académicos"
+            ]
+        },
+        {
+            "name": "ÍNDICE GENERAL",
+            "level": 1,
+            "order": 3,
+            "required": true,
+            "description": "Tabla de contenido autogenerada que incluye anexos.",
+            "subsections": [],
+            "estimatedWords": 0,
+            "validationRules": [
+                "Debe ser autogenerado"
+            ]
+        },
+        {
+            "name": "ÍNDICES COMPLEMENTARIOS",
+            "level": 1,
+            "order": 4,
+            "required": true,
+            "description": "Índice de figuras y tablas.",
+            "subsections": [],
+            "estimatedWords": 0,
+            "validationRules": [
+                "Incluye imágenes, gráficos, fotos (figuras) y cuadros, matrices (tablas)"
+            ]
+        },
+        {
+            "name": "CAPÍTULO I: INTRODUCCIÓN",
+            "level": 1,
+            "order": 5,
+            "required": true,
+            "description": "Contextualización del problema y sustento teórico en prosa.",
+            "subsections": [],
+            "estimatedWords": 2500,
+            "validationRules": [
+                "Redacción en prosa sin subtítulos internos",
+                "Incluye: realidad problemática, antecedentes (internacionales, nacionales, locales), marco teórico (3 metodologías estándar), justificación, enunciado del problema, hipótesis, objetivos y limitaciones"
+            ]
+        },
+        {
+            "name": "CAPÍTULO II: MÉTODO",
+            "level": 1,
+            "order": 6,
+            "required": true,
+            "description": "Descripción detallada del diseño y procedimientos metodológicos.",
+            "subsections": [
+                {
+                    "name": "Tipo de investigación",
+                    "level": 2,
+                    "order": 1,
+                    "required": true,
+                    "description": "Básica o aplicada",
+                    "estimatedWords": 200
+                },
+                {
+                    "name": "De acuerdo a la orientación o finalidad",
+                    "level": 2,
+                    "order": 2,
+                    "required": true,
+                    "description": "Detalle técnico",
+                    "estimatedWords": 100
+                },
+                {
+                    "name": "De acuerdo a la técnica de contrastación",
+                    "level": 2,
+                    "order": 3,
+                    "required": true,
+                    "description": "Descriptiva, correlacional o explicativa",
+                    "estimatedWords": 100
+                },
+                {
+                    "name": "Nivel de investigación",
+                    "level": 2,
+                    "order": 4,
+                    "required": true,
+                    "description": "Detalle del nivel",
+                    "estimatedWords": 100
+                },
+                {
+                    "name": "Diseño de Investigación",
+                    "level": 2,
+                    "order": 5,
+                    "required": true,
+                    "description": "Esquema gráfico y explicación",
+                    "estimatedWords": 300
+                },
+                {
+                    "name": "Población, muestra y muestreo",
+                    "level": 2,
+                    "order": 6,
+                    "required": true,
+                    "description": "Descripción espacio-temporal y técnica de selección",
+                    "estimatedWords": 300
+                },
+                {
+                    "name": "Variables",
+                    "level": 2,
+                    "order": 7,
+                    "required": true,
+                    "description": "Tipo de variables y matriz de operacionalización",
+                    "estimatedWords": 200
+                },
+                {
+                    "name": "Técnicas e instrumentos, validación y confiabilidad",
+                    "level": 2,
+                    "order": 8,
+                    "required": true,
+                    "description": "Incluye validación por jueces y prueba piloto",
+                    "estimatedWords": 400,
+                    "validationRules": [
+                        "Mínimo 3 jueces expertos",
+                        "Uso de coeficientes (V de Aiken, Kappa, etc.)",
+                        "Prueba piloto mínimo 30 participantes",
+                        "Consistencia interna (Alfa de Cronbach, Omega de McDonald, etc.)"
+                    ]
+                },
+                {
+                    "name": "Método de análisis de datos",
+                    "level": 2,
+                    "order": 9,
+                    "required": true,
+                    "description": "Técnicas estadísticas o cualitativas",
+                    "estimatedWords": 200
+                },
+                {
+                    "name": "Procedimiento",
+                    "level": 2,
+                    "order": 10,
+                    "required": true,
+                    "description": "Fases y esquema gráfico",
+                    "estimatedWords": 200
+                },
+                {
+                    "name": "Consideraciones éticas",
+                    "level": 2,
+                    "order": 11,
+                    "required": true,
+                    "description": "Criterios de calidad y ética",
+                    "estimatedWords": 100
+                }
+            ],
+            "estimatedWords": 2000,
+            "validationRules": [
+                "Uso estricto de los subtítulos definidos"
+            ]
+        },
+        {
+            "name": "CAPÍTULO III: ASPECTOS ADMINISTRATIVOS",
+            "level": 1,
+            "order": 7,
+            "required": true,
+            "description": "Gestión de recursos y cronograma.",
+            "subsections": [
+                {
+                    "name": "Recursos y presupuesto",
+                    "level": 2,
+                    "order": 1,
+                    "required": true,
+                    "description": "Personal, bienes, viajes, servicios, tecnológicos",
+                    "estimatedWords": 500
+                },
+                {
+                    "name": "Financiamiento",
+                    "level": 2,
+                    "order": 2,
+                    "required": true,
+                    "description": "Fuentes externas y autofinanciación",
+                    "estimatedWords": 100
+                },
+                {
+                    "name": "Cronograma de ejecución",
+                    "level": 2,
+                    "order": 3,
+                    "required": true,
+                    "description": "Diagrama de Gantt",
+                    "estimatedWords": 400
+                }
+            ],
+            "estimatedWords": 1000,
+            "validationRules": [
+                "Requiere clasificador de gastos y codificación contable actualizada",
+                "Tablas individuales por recurso más tabla consolidada"
+            ]
+        },
+        {
+            "name": "REFERENCIAS BIBLIOGRÁFICAS",
+            "level": 1,
+            "order": 8,
+            "required": true,
+            "description": "Listado de fuentes citadas.",
+            "subsections": [],
+            "estimatedWords": 0,
+            "validationRules": [
+                "Mínimo 30 referencias",
+                "70% últimos 5 años, 25% últimos 10 años, 5% otros",
+                "80% revistas indexadas, 20% libros",
+                "60% en idioma inglés",
+                "Orden alfabético",
+                "Estilo APA 7ma edición"
+            ]
+        },
+        {
+            "name": "ANEXOS",
+            "level": 1,
+            "order": 9,
+            "required": true,
+            "description": "Documentos complementarios obligatorios.",
+            "subsections": [],
+            "estimatedWords": 0,
+            "validationRules": [
+                "Obligatorios anexos 1 al 7 (Matriz operacionalización, matriz consistencia, Ichikawa, Árbol problemas, Árbol objetivos, Instrumentos, Constancia de aplicación)"
+            ]
+        },
+        {
+            "name": "FORMATOS",
+            "level": 1,
+            "order": 10,
+            "required": true,
+            "description": "Declaración jurada obligatoria.",
+            "subsections": [],
+            "estimatedWords": 0,
+            "validationRules": [
+                "Debe incluir declaración jurada según R.R. 384-2018-UNT"
+            ]
+        }
+    ],
+    "formatting": {
+        "margins": {
+            "top": 2.5,
+            "left": 3,
+            "right": 2.5,
+            "bottom": 2.5
+        },
+        "fontSize": 12,
+        "alignment": "justified",
+        "fontFamily": "Arial Narrow",
+        "lineSpacing": 2,
+        "tableNaming": "tablas",
+        "figureNaming": "figuras",
+        "pageNumbering": {
+            "enabled": true,
+            "position": "bottom-right",
+            "excludeFirstPage": true
+        },
+        "decimalSeparator": ",",
+        "bibliographyManager": "Mendeley, Zotero, EndNote, RefWorks"
+    },
+    "writingStyle": "formal, impersonal, tercera persona o voz pasiva",
+    "citationStyle": "APA 7ma edición",
+    "additionalRules": [
+        "Medio digital PDF (único archivo)",
+        "No hay encabezado ni pie de página",
+        "Uso de coma para decimales",
+        "No colocar 'Fuente: Elaboración propia' para figuras/tablas del autor",
+        "El medio físico (espiralado) debe coincidir exactamente con el digital"
+    ]
+}
