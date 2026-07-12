@@ -34,5 +34,5 @@ RUN npx turbo run build --filter=@kimy/api...
 # Puerto expuesto por defecto para NestJS (Render inyectará PORT en producción)
 EXPOSE 3001
 
-# Comando de inicio del servidor en modo producción (corre el seed automáticamente antes de iniciar)
-CMD ["sh", "-c", "npm run db:seed && npm run start --workspace=@kimy/api"]
+# Comando de inicio del servidor en modo producción (crea las tablas y corre el seed antes de iniciar)
+CMD ["sh", "-c", "npm run db:push && npm run db:seed && npm run start --workspace=@kimy/api"]
