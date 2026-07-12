@@ -19,12 +19,24 @@ async function bootstrap() {
 
   // CORS
   app.enableCors({
-    origin: [
-      'http://localhost:3000',
-      'http://localhost:19006', // Expo web
-      process.env.FRONTEND_URL || '',
-      process.env.APP_URL || '',
-    ].filter(Boolean),
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        'http://localhost:3000',
+        'http://localhost:19006', // Expo web
+        process.env.FRONTEND_URL,
+        process.env.APP_URL,
+      ].filter(Boolean);
+
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        /\.vercel\.app$/.test(origin)
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
   });
 
