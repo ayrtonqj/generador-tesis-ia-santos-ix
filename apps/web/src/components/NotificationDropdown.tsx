@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { Bell, Check, Info, AlertTriangle, X } from 'lucide-react';
 import { api } from '@/lib/api';
 
-const ICONS: Record<string, JSX.Element> = {
+const ICONS: Record<string, React.ReactNode> = {
   SUCCESS: <Check className="w-4 h-4 text-green-500" />,
   WARNING: <AlertTriangle className="w-4 h-4 text-amber-500" />,
   INFO: <Info className="w-4 h-4 text-blue-500" />,
