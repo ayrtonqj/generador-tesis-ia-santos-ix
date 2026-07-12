@@ -52,14 +52,18 @@ services:
         sync: false # Se configurará en Render UI con la URL de Vercel
 
       # Configuración de Inteligencia Artificial (A rellenar por el usuario)
+      - key: AI_PROVIDER
+        value: groq
+      - key: AI_MODEL
+        value: llama-3.3-70b-versatile
+      - key: AI_EMBEDDING_MODEL
+        value: text-embedding-3-large
+      - key: GROQ_API_KEY
+        sync: false
       - key: OPENAI_API_KEY
         sync: false
       - key: GEMINI_API_KEY
         sync: false
-      - key: AI_MODEL
-        value: gpt-4o
-      - key: AI_EMBEDDING_MODEL
-        value: text-embedding-3-large
 
       # Configuración de almacenamiento (MinIO / S3)
       - key: MINIO_ENDPOINT
