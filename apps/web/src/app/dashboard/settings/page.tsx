@@ -72,14 +72,45 @@ export default function SettingsPage() {
   // 1. Cargar datos del Backend al montar la página
   useEffect(() => {
     const fetchData = async () => {
+      let currentRole = 'ADMIN';
+      let currentName = 'Administrador del Sistema';
+      let currentEmail = 'admin@kimy.edu';
+
+      const userData = Cookies.get('kimy_user');
+      if (userData) {
+        try {
+          const parsed = JSON.parse(userData);
+          if (parsed.role) currentRole = parsed.role;
+          if (parsed.name) currentName = parsed.name;
+          if (parsed.email) currentEmail = parsed.email;
+        } catch {}
+      }
+
+      setUserRole(currentRole);
+      setFormData(prev => ({
+        ...prev,
+        fullName: currentName,
+        email: currentEmail,
+      }));
+
+      // En modo demo o fallback, habilitar la vista de proveedores de IA
+      setAvailableProviders({
+        openai: true,
+        deepseek: true,
+        gemini: true,
+        groq: true,
+        claude: true,
+        minimax: true,
+      });
+
       try {
         setLoading(true);
-        // Obtener perfil del usuario
+        // Obtener perfil del usuario del backend
         const profileRes = await api.get('/auth/me');
         const user = profileRes.data;
-        setUserRole(user.role || '');
-        if (user.role !== 'ADMIN' && (activeTab === 'general' || activeTab === 'ia')) {
-          setActiveTab('perfil');
+        if (user?.role) {
+          setUserRole(user.role);
+          currentRole = user.role;
         }
 
         // Obtener configuraciones globales
@@ -93,8 +124,8 @@ export default function SettingsPage() {
           aiProvider: settings.aiProvider || 'openai',
           approvalThreshold: settings.approvalThreshold ?? 60,
           rigorLevel: settings.rigorLevel || 'Alto',
-          fullName: user.name || '',
-          email: user.email || '',
+          fullName: user.name || currentName,
+          email: user.email || currentEmail,
           signature: user.signature || '',
           notifyComplete: user.notifyComplete ?? true,
           notifyPush: user.notifyPush ?? false,
@@ -120,12 +151,12 @@ export default function SettingsPage() {
 
         try {
           const providersRes = await api.get('/settings/providers');
-          setAvailableProviders(providersRes.data);
+          if (providersRes.data) setAvailableProviders(providersRes.data);
         } catch (err) {
           console.log('Could not fetch available providers');
         }
       } catch (err) {
-        console.error('Error cargando configuración:', err);
+        console.warn('Backend settings offline or unauthorized, using fallback values:', err);
       } finally {
         setLoading(false);
       }
