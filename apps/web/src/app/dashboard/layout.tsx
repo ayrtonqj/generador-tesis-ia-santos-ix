@@ -41,19 +41,17 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   useEffect(() => {
     const isAuthDisabled = process.env.NEXT_PUBLIC_DISABLE_AUTH === 'true';
     const userData = Cookies.get('kimy_user');
+    const token = Cookies.get('kimy_token');
 
-    if (userData) {
+    if (isAuthDisabled) {
+      // En modo demo, siempre asegurar que tengamos el token JWT del Admin en cookies
+      setupDemoAdmin();
+    } else if (userData && token) {
       try {
         setUser(JSON.parse(userData));
       } catch {
-        if (isAuthDisabled) {
-          setupDemoAdmin();
-        } else {
-          window.location.href = '/login';
-        }
+        window.location.href = '/login';
       }
-    } else if (isAuthDisabled) {
-      setupDemoAdmin();
     } else {
       window.location.href = '/login';
     }
@@ -64,7 +62,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     setUser(defaultUser);
     Cookies.set('kimy_user', JSON.stringify(defaultUser), { expires: 7 });
 
-    // Intentar obtener JWT real de admin si el backend está activo
+    // Obtener token JWT real del usuario administrador de la base de datos
     api.post('/auth/login', { email: 'admin@kimy.edu', password: 'Kimy2026!' })
       .then(res => {
         if (res.data?.accessToken) {
@@ -76,7 +74,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         }
       })
       .catch(() => {
-        // Si la API falla, mantenemos la sesión demo local sin interrupciones
+        // Si la API esta en frio o cae, se mantiene la sesión demo local sin bloquear la UI
       });
   };
 
