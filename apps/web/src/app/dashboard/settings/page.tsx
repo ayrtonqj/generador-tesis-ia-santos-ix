@@ -58,14 +58,7 @@ export default function SettingsPage() {
   const isAdmin = userRole === 'ADMIN' || isDemoMode;
   const [orcidProfile, setOrcidProfile] = useState<any>(null);
   const [orcidLoading, setOrcidLoading] = useState(false);
-  const [availableProviders, setAvailableProviders] = useState<Record<string, boolean>>({
-    openai: true,
-    deepseek: true,
-    gemini: true,
-    groq: true,
-    claude: true,
-    minimax: true,
-  });
+  const [availableProviders, setAvailableProviders] = useState<Record<string, boolean>>({});
 
   const fetchOrcidProfile = async () => {
     try {
@@ -106,15 +99,6 @@ export default function SettingsPage() {
         email: currentEmail,
       }));
 
-      // En modo demo o fallback, habilitar la vista de proveedores de IA
-      setAvailableProviders({
-        openai: true,
-        deepseek: true,
-        gemini: true,
-        groq: true,
-        claude: true,
-        minimax: true,
-      });
 
       try {
         setLoading(true);
@@ -165,10 +149,10 @@ export default function SettingsPage() {
         try {
           const providersRes = await api.get('/settings/providers');
           if (providersRes.data) {
-            setAvailableProviders(prev => ({ ...prev, ...providersRes.data }));
+            setAvailableProviders(providersRes.data);
           }
         } catch (err) {
-          console.log('Could not fetch available providers');
+          console.log('Could not fetch available providers from backend');
         }
       } catch (err) {
         console.warn('Backend settings offline or unauthorized, using fallback values:', err);
