@@ -137,11 +137,10 @@ export default function TemplatesPage() {
           <button
             key={f.key}
             onClick={() => setFilterMode(f.key as any)}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
-              filterMode === f.key
+            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${filterMode === f.key
                 ? 'bg-primary-500 text-white'
                 : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
-            }`}
+              }`}
           >
             {f.label}
           </button>
@@ -157,14 +156,14 @@ export default function TemplatesPage() {
               <button onClick={() => setShowUploadModal(false)} className="text-gray-400 hover:text-gray-600">✕</button>
             </div>
             <form onSubmit={handleUpload} className="p-6 space-y-4">
-              <div><label className="block text-xs font-medium text-gray-500 mb-1">Nombre del Formato</label><input required value={formData.name} onChange={e=>setFormData({...formData, name: e.target.value})} className="w-full border rounded-lg px-3 py-2 text-sm outline-none" placeholder="Ej: Formato APA 7mo" /></div>
+              <div><label className="block text-xs font-medium text-gray-500 mb-1">Nombre del Formato</label><input required value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} className="w-full border rounded-lg px-3 py-2 text-sm outline-none" placeholder="Ej: Formato APA 7mo" /></div>
               <div><label className="block text-xs font-medium text-gray-500 mb-1">Programa / Facultad</label>
-                <select required value={formData.programId} onChange={e=>setFormData({...formData, programId: e.target.value})} className="w-full border rounded-lg px-3 py-2 text-sm outline-none">
+                <select required value={formData.programId} onChange={e => setFormData({ ...formData, programId: e.target.value })} className="w-full border rounded-lg px-3 py-2 text-sm outline-none">
                   <option value="">Seleccionar programa...</option>
                   {programs.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
                 </select>
               </div>
-              <div><label className="block text-xs font-medium text-gray-500 mb-1">Archivo de Referencia (.pdf/.docx)</label><input type="file" required onChange={e=>setFile(e.target.files?.[0] || null)} className="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100" /></div>
+              <div><label className="block text-xs font-medium text-gray-500 mb-1">Archivo de Referencia (.pdf/.docx)</label><input type="file" required onChange={e => setFile(e.target.files?.[0] || null)} className="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100" /></div>
               <button type="submit" className="w-full py-2.5 bg-primary-500 text-white rounded-lg font-semibold text-sm hover:bg-primary-600 transition mt-2">Registrar Patrón</button>
             </form>
           </div>
@@ -180,17 +179,16 @@ export default function TemplatesPage() {
             <BookTemplate className="w-12 h-12 text-gray-300 mx-auto mb-3" />
             <p className="text-gray-500">
               {filterMode === 'active' ? 'No hay documentos patrón activos' :
-               filterMode === 'inactive' ? 'No hay documentos patrón inactivos' :
-               'No hay documentos patrón registrados'}
+                filterMode === 'inactive' ? 'No hay documentos patrón inactivos' :
+                  'No hay documentos patrón registrados'}
             </p>
           </div>
         ) : (
           filteredTemplates.map((t) => (
-            <div key={t.id} className={`p-5 rounded-xl border transition ${
-              t.isActive === false
+            <div key={t.id} className={`p-5 rounded-xl border transition ${t.isActive === false
                 ? 'bg-gray-50 border-gray-200 opacity-70'
                 : 'bg-white border-gray-200 hover:shadow-md'
-            }`}>
+              }`}>
               <div className="flex justify-between items-start mb-4">
                 <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center">
                   <FileText className="w-5 h-5" />
@@ -208,7 +206,7 @@ export default function TemplatesPage() {
               </div>
               <h3 className="font-semibold text-gray-900 truncate" title={t.name}>{t.name}</h3>
               <p className="text-xs text-gray-500 mt-1 mb-4">{t.program?.name || 'General'}</p>
-              
+
               <div className="flex gap-1.5">
                 <button onClick={() => setSelectedSchemaTemplate(t)} className="flex-1 py-1.5 border border-gray-200 text-gray-600 text-xs font-medium rounded-md hover:bg-gray-50 transition flex items-center justify-center gap-1">
                   <Eye className="w-3 h-3" /> Estructura
@@ -232,11 +230,10 @@ export default function TemplatesPage() {
                 </button>
                 <button
                   onClick={() => setConfirmToggleTemplate(t)}
-                  className={`px-2.5 py-1.5 border rounded-md transition ${
-                    t.isActive === false
+                  className={`px-2.5 py-1.5 border rounded-md transition ${t.isActive === false
                       ? 'border-green-200 text-green-600 hover:bg-green-50'
                       : 'border-orange-200 text-orange-600 hover:bg-orange-50'
-                  }`}
+                    }`}
                   title={t.isActive === false ? 'Reactivar' : 'Desactivar'}
                 >
                   {t.isActive === false ? (
@@ -262,11 +259,11 @@ export default function TemplatesPage() {
             <form onSubmit={handleEdit} className="p-6 space-y-4">
               <div>
                 <label className="block text-xs font-medium text-gray-500 mb-1">Nombre del Formato</label>
-                <input required value={editFormData.name} onChange={e => setEditFormData({...editFormData, name: e.target.value})} className="w-full border rounded-lg px-3 py-2 text-sm outline-none" />
+                <input required value={editFormData.name} onChange={e => setEditFormData({ ...editFormData, name: e.target.value })} className="w-full border rounded-lg px-3 py-2 text-sm outline-none" />
               </div>
               <div>
                 <label className="block text-xs font-medium text-gray-500 mb-1">Versión</label>
-                <input required value={editFormData.version} onChange={e => setEditFormData({...editFormData, version: e.target.value})} className="w-full border rounded-lg px-3 py-2 text-sm outline-none" placeholder="1.0" />
+                <input required value={editFormData.version} onChange={e => setEditFormData({ ...editFormData, version: e.target.value })} className="w-full border rounded-lg px-3 py-2 text-sm outline-none" placeholder="1.0" />
               </div>
               <button type="submit" className="w-full py-2.5 bg-primary-500 text-white rounded-lg font-semibold text-sm hover:bg-primary-600 transition mt-2">Guardar Cambios</button>
             </form>
@@ -295,11 +292,10 @@ export default function TemplatesPage() {
               </button>
               <button
                 onClick={() => handleToggle(confirmToggleTemplate)}
-                className={`px-4 py-2 rounded-lg text-sm font-semibold text-white transition ${
-                  confirmToggleTemplate.isActive === false
+                className={`px-4 py-2 rounded-lg text-sm font-semibold text-white transition ${confirmToggleTemplate.isActive === false
                     ? 'bg-green-600 hover:bg-green-700'
                     : 'bg-orange-600 hover:bg-orange-700'
-                }`}
+                  }`}
               >
                 {confirmToggleTemplate.isActive === false ? 'Sí, reactivar' : 'Sí, desactivar'}
               </button>
@@ -319,7 +315,7 @@ export default function TemplatesPage() {
               </div>
               <button onClick={() => setSelectedSchemaTemplate(null)} className="text-gray-400 hover:text-gray-600 font-semibold text-lg">✕</button>
             </div>
-            
+
             <div className="p-6 overflow-y-auto space-y-4 flex-1">
               {selectedSchemaTemplate.extractedSchema ? (
                 <div className="space-y-4">
@@ -337,7 +333,7 @@ export default function TemplatesPage() {
                   <div className="space-y-2">
                     <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">JSON Completo de la Estructura</h3>
                     <div className="relative">
-                      <button 
+                      <button
                         onClick={() => {
                           navigator.clipboard.writeText(JSON.stringify(selectedSchemaTemplate.extractedSchema, null, 2));
                           alert('¡JSON copiado al portapapeles!');
@@ -362,8 +358,8 @@ export default function TemplatesPage() {
             </div>
 
             <div className="px-6 py-4 border-t border-gray-100 bg-gray-50 flex justify-end gap-2">
-              <button 
-                onClick={() => setSelectedSchemaTemplate(null)} 
+              <button
+                onClick={() => setSelectedSchemaTemplate(null)}
                 className="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg text-sm font-semibold transition"
               >
                 Cerrar Estructura

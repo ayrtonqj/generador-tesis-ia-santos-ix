@@ -86,7 +86,7 @@ export default function SettingsPage() {
           if (parsed.role) currentRole = parsed.role;
           if (parsed.name) currentName = parsed.name;
           if (parsed.email) currentEmail = parsed.email;
-        } catch {}
+        } catch { }
       }
 
       setUserRole(currentRole);
@@ -177,7 +177,7 @@ export default function SettingsPage() {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
-    
+
     if (type === 'checkbox') {
       const checked = (e.target as HTMLInputElement).checked;
       setFormData(prev => ({ ...prev, [name]: checked }));
@@ -190,10 +190,10 @@ export default function SettingsPage() {
         claude: 'claude-3-5-sonnet-20241022',
         minimax: 'MiniMax-Text-01',
       };
-      setFormData(prev => ({ 
-        ...prev, 
+      setFormData(prev => ({
+        ...prev,
         aiProvider: value,
-        aiModel: defaultModels[value] || prev.aiModel 
+        aiModel: defaultModels[value] || prev.aiModel
       }));
     } else if (name === 'aiModel') {
       // Inferencia automática bidireccional del proveedor según el modelo seleccionado
@@ -246,7 +246,7 @@ export default function SettingsPage() {
   const handleSave = async () => {
     try {
       setIsSaved(false);
-      
+
       // Siempre guardar perfil del usuario (todos los roles)
       await api.put('/users/me/profile', {
         name: formData.fullName,
@@ -382,34 +382,34 @@ export default function SettingsPage() {
       <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
         <div className="flex border-b border-gray-200 overflow-x-auto">
           {isAdmin && (
-            <button 
+            <button
               onClick={() => setActiveTab('general')}
               className={`px-5 py-3.5 text-sm font-medium flex items-center gap-2 border-b-2 transition-colors whitespace-nowrap ${activeTab === 'general' ? 'border-primary-500 text-primary-600 bg-primary-50/30' : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'}`}
             >
               <Settings className="w-4 h-4" /> General
             </button>
           )}
-          <button 
+          <button
             onClick={() => setActiveTab('perfil')}
             className={`px-5 py-3.5 text-sm font-medium flex items-center gap-2 border-b-2 transition-colors whitespace-nowrap ${activeTab === 'perfil' ? 'border-primary-500 text-primary-600 bg-primary-50/30' : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'}`}
           >
             <User className="w-4 h-4" /> Perfil
           </button>
-          <button 
+          <button
             onClick={() => setActiveTab('notificaciones')}
             className={`px-5 py-3.5 text-sm font-medium flex items-center gap-2 border-b-2 transition-colors whitespace-nowrap ${activeTab === 'notificaciones' ? 'border-primary-500 text-primary-600 bg-primary-50/30' : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'}`}
           >
             <Bell className="w-4 h-4" /> Notificaciones
           </button>
           {isAdmin && (
-            <button 
+            <button
               onClick={() => setActiveTab('ia')}
               className={`px-5 py-3.5 text-sm font-medium flex items-center gap-2 border-b-2 transition-colors whitespace-nowrap ${activeTab === 'ia' ? 'border-primary-500 text-primary-600 bg-primary-50/30' : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'}`}
             >
               <Brain className="w-4 h-4" /> IA
             </button>
           )}
-          <button 
+          <button
             onClick={() => setActiveTab('seguridad')}
             className={`px-5 py-3.5 text-sm font-medium flex items-center gap-2 border-b-2 transition-colors whitespace-nowrap ${activeTab === 'seguridad' ? 'border-primary-500 text-primary-600 bg-primary-50/30' : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'}`}
           >
@@ -466,7 +466,7 @@ export default function SettingsPage() {
           {activeTab === 'perfil' && (
             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
               <h2 className="text-lg font-medium text-gray-900 border-b border-gray-100 pb-2">Información Personal</h2>
-              
+
               <div className="flex items-center gap-6 mb-4">
                 <div className="relative">
                   {/* Foto de perfil o Inicial */}
@@ -477,26 +477,26 @@ export default function SettingsPage() {
                       formData.fullName ? formData.fullName.charAt(0).toUpperCase() : 'A'
                     )}
                   </div>
-                  
+
                   {/* Botón flotante de cámara */}
-                  <button 
+                  <button
                     onClick={() => fileInputRef.current?.click()}
                     className="absolute bottom-0 right-0 p-1.5 bg-white border border-gray-200 rounded-full text-gray-600 hover:text-primary-600 shadow-sm transition active:scale-95"
                   >
                     <Camera className="w-4 h-4" />
                   </button>
                   {/* Input de archivo oculto */}
-                  <input 
-                    type="file" 
-                    accept="image/png, image/jpeg" 
-                    className="hidden" 
-                    ref={fileInputRef} 
-                    onChange={handlePhotoUpload} 
+                  <input
+                    type="file"
+                    accept="image/png, image/jpeg"
+                    className="hidden"
+                    ref={fileInputRef}
+                    onChange={handlePhotoUpload}
                   />
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-900">Foto de Perfil</h3>
-                  <p className="text-sm text-gray-500 mt-1">Sube una foto clara en formato JPG o PNG.<br/>Tamaño máximo 2MB.</p>
+                  <p className="text-sm text-gray-500 mt-1">Sube una foto clara en formato JPG o PNG.<br />Tamaño máximo 2MB.</p>
                 </div>
               </div>
 
@@ -520,7 +520,7 @@ export default function SettingsPage() {
               {userRole === 'ADVISOR' && (
                 <div className="mt-8 border-t border-gray-100 pt-8 space-y-6">
                   <h3 className="text-lg font-medium text-gray-900 border-b border-gray-100 pb-2">Filiación Científica e Integraciones</h3>
-                  
+
                   {orcidLoading ? (
                     <div className="flex items-center gap-2 text-sm text-gray-500 py-4">
                       <Loader2 className="w-4 h-4 text-cyan-600 animate-spin" />
@@ -602,7 +602,7 @@ export default function SettingsPage() {
           {activeTab === 'notificaciones' && (
             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
               <h2 className="text-lg font-medium text-gray-900 border-b border-gray-100 pb-2">Preferencias de Alertas</h2>
-              
+
               <div className="space-y-4">
                 <div className="flex items-start justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
                   <div>
@@ -643,7 +643,7 @@ export default function SettingsPage() {
           {activeTab === 'ia' && isAdmin && (
             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
               <h2 className="text-lg font-medium text-gray-900 border-b border-gray-100 pb-2">Preferencias de Inteligencia Artificial</h2>
-              
+
               {/* Proveedor Principal */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Proveedor de IA Principal</label>
@@ -660,48 +660,47 @@ export default function SettingsPage() {
                     const isAvailable = availableProviders[p.id] === true;
                     const isSelected = formData.aiProvider === p.id;
                     return (
-                    <label
-                      key={p.id}
-                      title={!isAvailable ? `Agrega ${p.id.toUpperCase()}_API_KEY en el archivo .env para activar este proveedor` : ''}
-                      className={`relative flex items-center gap-3 p-4 rounded-xl border-2 transition-all ${
-                        !isAvailable
-                          ? 'border-gray-100 bg-gray-50 opacity-50 cursor-not-allowed'
-                          : isSelected
-                          ? 'border-primary-500 bg-primary-50/30 shadow-sm cursor-pointer'
-                          : 'border-gray-200 hover:border-gray-300 bg-white cursor-pointer'
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name="aiProvider"
-                        value={p.id}
-                        checked={isSelected}
-                        disabled={!isAvailable}
-                        onChange={handleInputChange}
-                        className="sr-only"
-                      />
-                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                        isSelected ? 'bg-primary-100 text-primary-600' : `${p.bg} ${p.color}`
-                      }`}>
-                        <p.icon className="w-5 h-5" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-medium text-sm text-gray-900">{p.name}</p>
-                        <div className="flex items-center gap-1.5 mt-0.5">
-                          {isAvailable ? (
-                            <><span className="w-2 h-2 rounded-full bg-green-500"></span><span className="text-xs text-green-600 font-medium">API Key configurada</span></>
-                          ) : (
-                            <><Lock className="w-3 h-3 text-gray-400" /><span className="text-xs text-gray-400">Sin API Key</span></>
-                          )}
+                      <label
+                        key={p.id}
+                        title={!isAvailable ? `Agrega ${p.id.toUpperCase()}_API_KEY en el archivo .env para activar este proveedor` : ''}
+                        className={`relative flex items-center gap-3 p-4 rounded-xl border-2 transition-all ${!isAvailable
+                            ? 'border-gray-100 bg-gray-50 opacity-50 cursor-not-allowed'
+                            : isSelected
+                              ? 'border-primary-500 bg-primary-50/30 shadow-sm cursor-pointer'
+                              : 'border-gray-200 hover:border-gray-300 bg-white cursor-pointer'
+                          }`}
+                      >
+                        <input
+                          type="radio"
+                          name="aiProvider"
+                          value={p.id}
+                          checked={isSelected}
+                          disabled={!isAvailable}
+                          onChange={handleInputChange}
+                          className="sr-only"
+                        />
+                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${isSelected ? 'bg-primary-100 text-primary-600' : `${p.bg} ${p.color}`
+                          }`}>
+                          <p.icon className="w-5 h-5" />
                         </div>
-                      </div>
-                      {isSelected && isAvailable && (
-                        <div className="w-6 h-6 rounded-full bg-primary-500 text-white flex items-center justify-center">
-                          <CheckCircle2 className="w-4 h-4" />
+                        <div className="flex-1">
+                          <p className="font-medium text-sm text-gray-900">{p.name}</p>
+                          <div className="flex items-center gap-1.5 mt-0.5">
+                            {isAvailable ? (
+                              <><span className="w-2 h-2 rounded-full bg-green-500"></span><span className="text-xs text-green-600 font-medium">API Key configurada</span></>
+                            ) : (
+                              <><Lock className="w-3 h-3 text-gray-400" /><span className="text-xs text-gray-400">Sin API Key</span></>
+                            )}
+                          </div>
                         </div>
-                      )}
-                    </label>
-                  )})}
+                        {isSelected && isAvailable && (
+                          <div className="w-6 h-6 rounded-full bg-primary-500 text-white flex items-center justify-center">
+                            <CheckCircle2 className="w-4 h-4" />
+                          </div>
+                        )}
+                      </label>
+                    )
+                  })}
                 </div>
               </div>
 
@@ -760,7 +759,7 @@ export default function SettingsPage() {
           {activeTab === 'seguridad' && (
             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
               <h2 className="text-lg font-medium text-gray-900 border-b border-gray-100 pb-2">Seguridad de la Cuenta</h2>
-              
+
               {/* Cambio de contraseña */}
               <div className="space-y-4">
                 <h3 className="font-medium text-gray-700">Cambiar Contraseña</h3>
@@ -786,7 +785,7 @@ export default function SettingsPage() {
                   <p className="text-sm font-medium text-green-600 animate-in fade-in">{passwordSuccess}</p>
                 )}
 
-                <button 
+                <button
                   onClick={handleUpdatePassword}
                   className="px-4 py-2.5 bg-gray-800 text-white rounded-lg text-sm font-medium hover:bg-gray-900 transition flex items-center gap-2 active:scale-95"
                 >
@@ -967,7 +966,7 @@ export default function SettingsPage() {
 
           {activeTab !== 'seguridad' && (
             <div className="pt-6 border-t border-gray-200 flex items-center gap-4">
-              <button 
+              <button
                 onClick={handleSave}
                 className="px-6 py-2.5 bg-primary-600 text-white rounded-lg text-sm font-medium hover:bg-primary-700 transition shadow-sm flex items-center gap-2 active:scale-95"
               >
