@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Settings, Shield, Bell, User, Camera, LogOut, CheckCircle2, Loader2, Smartphone, Key, Copy, Download, AlertTriangle, Brain, Cpu, Zap, Sparkles, Lock } from 'lucide-react';
 import { api } from '@/lib/api';
+import Cookies from 'js-cookie';
 
 export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState('general');
