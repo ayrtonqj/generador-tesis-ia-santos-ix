@@ -1,5 +1,7 @@
 import { redirect } from 'next/navigation';
 
 export default function Home() {
-  redirect('/login');
+  const disableAuth = process.env.NEXT_PUBLIC_DISABLE_AUTH === 'true';
+  redirect(disableAuth ? '/dashboard' : '/login');
 }
+

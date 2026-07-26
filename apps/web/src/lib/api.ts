@@ -21,7 +21,7 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    if (error.response?.status === 401 && process.env.NEXT_PUBLIC_DISABLE_AUTH !== 'true') {
       Cookies.remove('kimy_token');
       Cookies.remove('kimy_user');
       if (typeof window !== 'undefined' && !window.location.pathname.includes('/login')) {

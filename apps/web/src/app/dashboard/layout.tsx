@@ -39,9 +39,25 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const [unreadCount, setUnreadCount] = useState(0);
 
   useEffect(() => {
+    const isAuthDisabled = process.env.NEXT_PUBLIC_DISABLE_AUTH === 'true';
     const userData = Cookies.get('kimy_user');
+
     if (userData) {
-      try { setUser(JSON.parse(userData)); } catch { }
+      try {
+        setUser(JSON.parse(userData));
+      } catch {
+        if (isAuthDisabled) {
+          const defaultUser = { id: 'admin-demo', name: 'Administrador (Demo)', email: 'admin@kimy.edu', role: 'ADMIN' };
+          Cookies.set('kimy_user', JSON.stringify(defaultUser), { expires: 7 });
+          setUser(defaultUser);
+        } else {
+          window.location.href = '/login';
+        }
+      }
+    } else if (isAuthDisabled) {
+      const defaultUser = { id: 'admin-demo', name: 'Administrador (Demo)', email: 'admin@kimy.edu', role: 'ADMIN' };
+      Cookies.set('kimy_user', JSON.stringify(defaultUser), { expires: 7 });
+      setUser(defaultUser);
     } else {
       window.location.href = '/login';
     }
@@ -56,7 +72,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const handleLogout = () => {
     Cookies.remove('kimy_token');
     Cookies.remove('kimy_user');
-    window.location.href = '/login';
+    window.location.href = process.env.NEXT_PUBLIC_DISABLE_AUTH === 'true' ? '/dashboard' : '/login';
   };
 
   const filteredItems = NAV_ITEMS.filter(
