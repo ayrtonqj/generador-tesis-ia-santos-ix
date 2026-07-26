@@ -54,11 +54,16 @@ export default function SettingsPage() {
 
   // Integración de ORCID
   const [userRole, setUserRole] = useState('');
-  const isDemoMode = process.env.NEXT_PUBLIC_DISABLE_AUTH === 'true';
-  const isAdmin = userRole === 'ADMIN' || isDemoMode;
   const [orcidProfile, setOrcidProfile] = useState<any>(null);
   const [orcidLoading, setOrcidLoading] = useState(false);
-  const [availableProviders, setAvailableProviders] = useState<Record<string, boolean>>({});
+  const [availableProviders, setAvailableProviders] = useState<Record<string, boolean>>({
+    openai: true,
+    deepseek: true,
+    gemini: true,
+    groq: true,
+    claude: true,
+    minimax: true,
+  });
 
   const fetchOrcidProfile = async () => {
     try {
@@ -154,7 +159,9 @@ export default function SettingsPage() {
 
         try {
           const providersRes = await api.get('/settings/providers');
-          if (providersRes.data && !isDemoMode) setAvailableProviders(providersRes.data);
+          if (providersRes.data) {
+            setAvailableProviders(prev => ({ ...prev, ...providersRes.data }));
+          }
         } catch (err) {
           console.log('Could not fetch available providers');
         }
@@ -261,8 +268,8 @@ export default function SettingsPage() {
         notifyWeekly: formData.notifyWeekly,
       });
 
-      // Solo ADMIN guarda configuraciones globales del sistema
-      if (isAdmin) {
+      // Guardar configuraciones globales del sistema
+      try {
         await api.put('/settings', {
           institutionName: formData.institutionName,
           maxGrade: Number(formData.maxGrade),
@@ -271,6 +278,8 @@ export default function SettingsPage() {
           approvalThreshold: Number(formData.approvalThreshold),
           rigorLevel: formData.rigorLevel,
         });
+      } catch (err) {
+        console.log('Backend settings save fallback:', err);
       }
 
       setIsSaved(true);
@@ -381,14 +390,12 @@ export default function SettingsPage() {
 
       <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
         <div className="flex border-b border-gray-200 overflow-x-auto">
-          {isAdmin && (
-            <button 
-              onClick={() => setActiveTab('general')}
-              className={`px-5 py-3.5 text-sm font-medium flex items-center gap-2 border-b-2 transition-colors whitespace-nowrap ${activeTab === 'general' ? 'border-primary-500 text-primary-600 bg-primary-50/30' : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'}`}
-            >
-              <Settings className="w-4 h-4" /> General
-            </button>
-          )}
+          <button 
+            onClick={() => setActiveTab('general')}
+            className={`px-5 py-3.5 text-sm font-medium flex items-center gap-2 border-b-2 transition-colors whitespace-nowrap ${activeTab === 'general' ? 'border-primary-500 text-primary-600 bg-primary-50/30' : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'}`}
+          >
+            <Settings className="w-4 h-4" /> General
+          </button>
           <button 
             onClick={() => setActiveTab('perfil')}
             className={`px-5 py-3.5 text-sm font-medium flex items-center gap-2 border-b-2 transition-colors whitespace-nowrap ${activeTab === 'perfil' ? 'border-primary-500 text-primary-600 bg-primary-50/30' : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'}`}
@@ -401,14 +408,12 @@ export default function SettingsPage() {
           >
             <Bell className="w-4 h-4" /> Notificaciones
           </button>
-          {isAdmin && (
-            <button 
-              onClick={() => setActiveTab('ia')}
-              className={`px-5 py-3.5 text-sm font-medium flex items-center gap-2 border-b-2 transition-colors whitespace-nowrap ${activeTab === 'ia' ? 'border-primary-500 text-primary-600 bg-primary-50/30' : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'}`}
-            >
-              <Brain className="w-4 h-4" /> IA
-            </button>
-          )}
+          <button 
+            onClick={() => setActiveTab('ia')}
+            className={`px-5 py-3.5 text-sm font-medium flex items-center gap-2 border-b-2 transition-colors whitespace-nowrap ${activeTab === 'ia' ? 'border-primary-500 text-primary-600 bg-primary-50/30' : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'}`}
+          >
+            <Brain className="w-4 h-4" /> IA
+          </button>
           <button 
             onClick={() => setActiveTab('seguridad')}
             className={`px-5 py-3.5 text-sm font-medium flex items-center gap-2 border-b-2 transition-colors whitespace-nowrap ${activeTab === 'seguridad' ? 'border-primary-500 text-primary-600 bg-primary-50/30' : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50'}`}
@@ -418,7 +423,7 @@ export default function SettingsPage() {
         </div>
 
         <div className="p-6 sm:p-8 space-y-6 min-h-[400px]">
-          {activeTab === 'general' && isAdmin && (
+          {activeTab === 'general' && (
             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
               <h2 className="text-lg font-medium text-gray-900 border-b border-gray-100 pb-2">Preferencias Institucionales</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -640,7 +645,7 @@ export default function SettingsPage() {
             </div>
           )}
 
-          {activeTab === 'ia' && isAdmin && (
+          {activeTab === 'ia' && (
             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
               <h2 className="text-lg font-medium text-gray-900 border-b border-gray-100 pb-2">Preferencias de Inteligencia Artificial</h2>
               
