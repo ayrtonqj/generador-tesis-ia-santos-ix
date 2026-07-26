@@ -9,6 +9,7 @@ import {
   LayoutDashboard, FileText, Upload, Users, BookTemplate,
   BarChart3, Settings, LogOut, Brain, Shield, BookOpen,
   Bell, ChevronLeft, Menu, Layers, Sparkles, MessageSquare, Languages,
+  Loader2, Server, ArrowRight,
 } from 'lucide-react';
 import { ChatWidget } from '@/components/chat/ChatWidget';
 import { NotificationDropdown } from '@/components/NotificationDropdown';
@@ -37,6 +38,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const [user, setUser] = useState<any>(null);
   const [notifOpen, setNotifOpen] = useState(false);
   const [unreadCount, setUnreadCount] = useState(0);
+  const [isConnectingBackend, setIsConnectingBackend] = useState(false);
 
   useEffect(() => {
     const isAuthDisabled = process.env.NEXT_PUBLIC_DISABLE_AUTH === 'true';
@@ -44,7 +46,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     const token = Cookies.get('kimy_token');
 
     if (isAuthDisabled) {
-      // En modo demo, siempre asegurar que tengamos el token JWT del Admin en cookies
+      if (!token) {
+        setIsConnectingBackend(true);
+      }
       setupDemoAdmin();
     } else if (userData && token) {
       try {
@@ -75,6 +79,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       })
       .catch(() => {
         // Si la API esta en frio o cae, se mantiene la sesión demo local sin bloquear la UI
+      })
+      .finally(() => {
+        setIsConnectingBackend(false);
       });
   };
 
@@ -93,6 +100,50 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const filteredItems = NAV_ITEMS.filter(
     (item) => !user || user.role === 'ADMIN' || item.roles.includes(user.role),
   );
+
+  if (isConnectingBackend) {
+    return (
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
+        <div className="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-8 max-w-md w-full shadow-2xl text-center space-y-6 animate-in fade-in zoom-in-95 duration-300">
+          <div className="relative w-20 h-20 mx-auto flex items-center justify-center">
+            <div className="absolute inset-0 rounded-full bg-cyan-500/20 animate-ping"></div>
+            <div className="w-16 h-16 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-inner">
+              <Loader2 className="w-8 h-8 animate-spin text-cyan-400" />
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5" /> Modo Demo Activo
+            </div>
+            <h2 className="text-xl font-bold text-white">Iniciando Sesión Automáticamente</h2>
+            <p className="text-xs text-slate-400">Autenticando como Administrador del Sistema...</p>
+          </div>
+
+          <div className="bg-slate-900/60 border border-slate-700/50 rounded-xl p-4 text-left space-y-2.5 text-xs text-slate-300">
+            <div className="flex items-start gap-2.5">
+              <Server className="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <span className="font-semibold text-slate-200">Despertando Servidor (Render):</span>
+                <p className="text-slate-400 mt-0.5 leading-relaxed">
+                  Dado que el backend en el plan gratuito de Render se suspende tras inactividad, la conexión inicial puede demorar entre <strong className="text-cyan-300">30 y 60 segundos</strong> mientras inicia el servidor.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-2">
+            <button
+              onClick={() => setIsConnectingBackend(false)}
+              className="w-full py-2.5 px-4 bg-slate-700/80 hover:bg-slate-700 text-slate-200 text-xs font-medium rounded-xl border border-slate-600 transition active:scale-95 flex items-center justify-center gap-2"
+            >
+              Continuar a la Vista Previa <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!user) return null;
 
