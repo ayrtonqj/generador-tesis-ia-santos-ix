@@ -47,21 +47,38 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         setUser(JSON.parse(userData));
       } catch {
         if (isAuthDisabled) {
-          const defaultUser = { id: 'admin-demo', name: 'Administrador (Demo)', email: 'admin@kimy.edu', role: 'ADMIN' };
-          Cookies.set('kimy_user', JSON.stringify(defaultUser), { expires: 7 });
-          setUser(defaultUser);
+          setupDemoAdmin();
         } else {
           window.location.href = '/login';
         }
       }
     } else if (isAuthDisabled) {
-      const defaultUser = { id: 'admin-demo', name: 'Administrador (Demo)', email: 'admin@kimy.edu', role: 'ADMIN' };
-      Cookies.set('kimy_user', JSON.stringify(defaultUser), { expires: 7 });
-      setUser(defaultUser);
+      setupDemoAdmin();
     } else {
       window.location.href = '/login';
     }
   }, []);
+
+  const setupDemoAdmin = () => {
+    const defaultUser = { id: 'admin-demo', name: 'Administrador del Sistema', email: 'admin@kimy.edu', role: 'ADMIN' };
+    setUser(defaultUser);
+    Cookies.set('kimy_user', JSON.stringify(defaultUser), { expires: 7 });
+
+    // Intentar obtener JWT real de admin si el backend está activo
+    api.post('/auth/login', { email: 'admin@kimy.edu', password: 'Kimy2026!' })
+      .then(res => {
+        if (res.data?.accessToken) {
+          Cookies.set('kimy_token', res.data.accessToken, { expires: 7 });
+          if (res.data.user) {
+            Cookies.set('kimy_user', JSON.stringify(res.data.user), { expires: 7 });
+            setUser(res.data.user);
+          }
+        }
+      })
+      .catch(() => {
+        // Si la API falla, mantenemos la sesión demo local sin interrupciones
+      });
+  };
 
   useEffect(() => {
     api.get('/notifications/unread-count')
@@ -76,7 +93,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   };
 
   const filteredItems = NAV_ITEMS.filter(
-    (item) => !user || item.roles.includes(user.role),
+    (item) => !user || user.role === 'ADMIN' || item.roles.includes(user.role),
   );
 
   if (!user) return null;
